@@ -1,33 +1,50 @@
-import * as React from 'react';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import ProTip from './ProTip';
+import * as React from "react";
+import { Route, Routes } from "react-router-dom";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import Home from "./Home";
+import ComponentDetail from "./ComponentDetail";
+import ColorModeContext from "./context/ColorModeContext";
+// const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 export default function App() {
+  const [mode, setMode] = React.useState("light");
+  const colorMode = React.useMemo(
+    () => ({
+      toggleColorMode: () => {
+        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+      },
+    }),
+    []
+  );
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode,
+        },
+      }),
+    [mode]
+  );
   return (
-    <Container maxWidth="sm">
-      <Box sx={{ my: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Create React App example
-        </Typography>
-        <ProTip />
-        <Copyright />
-      </Box>
-    </Container>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Routes>
+          <Route path="/" exact index element={<Home />} />
+          <Route
+            path="/components/:component_id"
+            element={<ComponentDetail />}
+          />
+        </Routes>
+        {/* <HomeAppBar />
+        <div>Hello</div> */}
+      </ThemeProvider>
+    </ColorModeContext.Provider>
+    // <Routes>
+    //   <Route path="/" exact index element={<Home />} />
+    // </Routes>
   );
 }
