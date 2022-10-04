@@ -3,7 +3,6 @@ import HomeAppBar from "./components/app-bar/HomeAppBar.js";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import ProTip from "./ProTip";
 import Link from "@mui/material/Link";
 import { Link as RouterLink } from "react-router-dom";
 import List from "@mui/material/List";
@@ -48,7 +47,7 @@ export default function Home() {
         sx={{ width: "100%", bgcolor: "background.paper", cursor: "pointer" }}
       >
         {component_lists.map((component) => (
-          <Link component={LinkBehavior} to={`/components/${component.id}`}>
+          <Link component={LinkBehavior} to={`/components/${component.name}`}>
             <ListItem alignItems="flex-start">
               <ListItemText
                 primary={component.name}
