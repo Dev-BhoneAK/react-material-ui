@@ -6,22 +6,22 @@ let component_lists = [
   },
   {
     id: 2,
-    name: "Select",
-    description: "All Material Buttons",
+    name: "Selects",
+    description: "All Material Selects",
   },
   {
     id: 3,
-    name: "Text Field",
-    description: "All Material Buttons",
+    name: "TextFields",
+    description: "All Material TextFields",
   },
   {
     id: 4,
-    name: "Typography",
-    description: "All Material Buttons",
+    name: "Typographies",
+    description: "All Material Typographies",
   },
   {
     id: 5,
-    name: "Card",
+    name: "Cards",
     description: "All Material Cards",
   },
 ];

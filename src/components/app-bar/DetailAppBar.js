@@ -4,15 +4,16 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
+import { Link } from "react-router-dom";
+// import Link from "@mui/material/Link";
 
-export default function DetailAppBar() {
+export default function DetailAppBar({ componentName }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <Link to="/" sx={{ color: "inherit" }}>
+          <Link to="/" style={{ color: "inherit" }}>
             <IconButton
               size="large"
               edge="start"
@@ -23,6 +24,9 @@ export default function DetailAppBar() {
               <ArrowBackIcon />
             </IconButton>
           </Link>
+          <Typography variant="h6" noWrap component="div">
+            {componentName}
+          </Typography>
         </Toolbar>
       </AppBar>
     </Box>
