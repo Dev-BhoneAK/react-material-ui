@@ -9,7 +9,7 @@ import Home from "./Home";
 import ColorModeContext from "./context/ColorModeContext";
 import component_lists from "./utils/_DATA.js";
 import DetailAppBar from "./components/app-bar/DetailAppBar";
-
+import { StyledEngineProvider } from "@mui/material/styles";
 // const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 export default function App() {
@@ -33,6 +33,7 @@ export default function App() {
     [mode]
   );
   return (
+    // <StyledEngineProvider injectFirst>
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -63,6 +64,7 @@ export default function App() {
         <div>Hello</div> */}
       </ThemeProvider>
     </ColorModeContext.Provider>
+    // </StyledEngineProvider>
     // <Routes>
     //   <Route path="/" exact index element={<Home />} />
     // </Routes>
