@@ -20,6 +20,7 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import ColorModeContext from "../../context/ColorModeContext";
 import componentListData from "../../utils/_DATA.js";
+import TemporaryDrawer from "./Drawer";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -120,6 +121,7 @@ export default function HomeAppBar({ componentLists, setComponentLists }) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
+          <TemporaryDrawer />
           <Typography
             variant="h6"
             noWrap
